@@ -12,10 +12,10 @@ int main(void)
 	{
 		print_prompt();
 		getline(&command_line, &arg_count, stdin);
-
+		command_line = strtok(command_line, " \n");
 		pid = fork();
 		if (pid == 0)
-			execve("/bin/ls", argument_line, envp);
+			execve(command_line, argument_line, envp);
 		sleep(1);
 	}
 	return (0);
