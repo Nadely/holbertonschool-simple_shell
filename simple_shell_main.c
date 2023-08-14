@@ -6,13 +6,13 @@
  */
 int main(void)
 {
-	char *envp[] = { NULL };
+	char *envp[] = {NULL};
 	char *command_line = NULL;
-	char *argument_line[] = { "/bin/ls", "-l", "-a", NULL };
+	char *argument_line[] = {"/bin/ls", NULL};
 	pid_t pid;
 	size_t arg_count = 0;
 
-	while (1)
+	do
 	{
 		print_prompt();
 		if (command_line != NULL)
@@ -23,6 +23,6 @@ int main(void)
 		if (pid == 0)
 			execve(command_line, argument_line, envp);
 		sleep(1);
-	}
+	} while (strcmp(command_line, "exit") != 0);
 	return (0);
 }
