@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * main - function simple shell
+ *
+ * Return: int
+ */
 int main(void)
 {
 	char *envp[] = { NULL };
@@ -11,6 +15,8 @@ int main(void)
 	while (1)
 	{
 		print_prompt();
+		if (command_line != NULL)
+			free(command_line);
 		getline(&command_line, &arg_count, stdin);
 		command_line = strtok(command_line, " \n");
 		pid = fork();
