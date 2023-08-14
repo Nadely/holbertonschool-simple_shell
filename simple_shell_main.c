@@ -12,8 +12,7 @@ int main(void)
 	pid_t pid;
 	size_t arg_count = 0;
 
-	do
-	{
+	do {
 		print_prompt();
 		if (command_line != NULL)
 			free(command_line);

@@ -6,6 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_prompt();
+void print_prompt(void);
 
 #endif
