@@ -16,7 +16,7 @@ int execute_command(char *command, char **env)
 {
 	char *argument_line[] = {"notnull", NULL};
 	pid_t pid;
-	int result;
+	int result, *for_child_to_finish = 0;
 
 	pid = fork();
 	if (pid == -1)
@@ -31,6 +31,6 @@ int execute_command(char *command, char **env)
 			perror("execve");
 		exit(0);
 	}
-	sleep(2);
+	wait(for_child_to_finish);
 	return (0);
 }

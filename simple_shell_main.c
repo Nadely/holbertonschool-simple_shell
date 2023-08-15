@@ -21,7 +21,7 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		print_prompt(path);
+		/*print_prompt(path);*/
 		if (command_line != NULL)
 		{
 			free(command_line);
