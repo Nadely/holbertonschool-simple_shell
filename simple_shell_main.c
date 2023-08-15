@@ -4,24 +4,37 @@
  *
  * Return: int
  */
-int main(void)
+int main(int argc, char **argv, char **env)
 {
-	char *envp[] = {NULL};
 	char *command_line = NULL;
-	char *argument_line[] = {"/bin/ls", NULL};
-	pid_t pid;
 	size_t arg_count = 0;
+	struct stat file_stats;
+	int result;
 
-	do {
+	(void)argc;
+	(void)argv;
+	while (1)
+	{
 		print_prompt();
 		if (command_line != NULL)
+		{
 			free(command_line);
-		getline(&command_line, &arg_count, stdin);
+			command_line = NULL;
+		}
+
+		result = getline(&command_line, &arg_count, stdin);
+		if(result == -1)
+			break;
 		command_line = strtok(command_line, " \n");
-		pid = fork();
-		if (pid == 0)
-			execve(command_line, argument_line, envp);
-		sleep(1);
-	} while (strcmp(command_line, "exit") != 0);
+
+		if (strcmp(command_line, "exit") == 0)
+			break;
+		if (stat(command_line, &file_stats) == 0)
+			execute_command(command_line, env);
+		else
+			fprintf(stderr, "Command not fount: %s\n", command_line);
+
+	}
+	free(command_line);
 	return (0);
 }

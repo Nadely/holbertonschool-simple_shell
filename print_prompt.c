@@ -12,3 +12,4 @@ void print_prompt(void)
 	write(1, path, strlen(path));
 	write(1, "$ ", 2);
 }
+
