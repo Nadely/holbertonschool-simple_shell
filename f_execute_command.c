@@ -12,9 +12,8 @@
  * Return: 0 if successful, -1 on failure
  */
 
-int execute_command(char *command, char **env)
+int execute_command(char *command, char **arguments, char **env)
 {
-	char *argument_line[] = {"notnull", NULL};
 	pid_t pid;
 	int result, *for_child_to_finish = 0;
 
@@ -26,7 +25,7 @@ int execute_command(char *command, char **env)
 	}
 	if (pid == 0)
 	{
-		result = execve(command, argument_line, env);
+		result = execve(command, arguments, env);
 		if (result == -1)
 			perror("execve");
 		exit(0);

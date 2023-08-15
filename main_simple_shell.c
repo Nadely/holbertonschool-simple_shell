@@ -35,7 +35,7 @@ int main(int argc, char **argv, char **env)
 		if (strcmp(arguments[0], "exit") == 0)
 			break;
 		if (stat(arguments[0], &file_stats) == 0)
-			execute_command(arguments[0], env);
+			execute_command(arguments[0], arguments, env);
 		else
 			fprintf(stderr, "Command not found: %s\n", arguments[0]);
 
