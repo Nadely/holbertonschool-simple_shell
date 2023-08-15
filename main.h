@@ -8,7 +8,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
-void print_prompt(char *path);
+void print_prompt(void);
 int execute_command(char *command, char **env);
+char **parse_command_line(char *command);
 
 #endif

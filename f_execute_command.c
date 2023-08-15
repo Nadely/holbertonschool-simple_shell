@@ -2,7 +2,7 @@
 /**
  * execute_command - execute a command
  * @command: the command to execute
- *
+ * @env: environment variables
  * Description : Cette fonction prend une commande en argument et l'exécute
  * à l'aide de l'appel système execve. Elle crée un processus enfant en
  * utilisant l'appel système fork, puis utilise execve pour remplacer le
