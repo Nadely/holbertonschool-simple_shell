@@ -19,18 +19,12 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		/*print_prompt(path);*/
-		/*if (command_line != NULL)
-		{
-			free(command_line);
-			command_line = NULL;
-		}*/
+		print_prompt();
 		result = getline(&command_line, &arg_count, stdin);
 
 		if (result == -1)
 			break;
 		arguments = parse_command_line(command_line, arguments);
-		/*free(command_line);*/
 
 		if (arguments != NULL)
 		{
