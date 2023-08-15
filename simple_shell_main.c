@@ -10,12 +10,18 @@ int main(int argc, char **argv, char **env)
 	size_t arg_count = 0;
 	struct stat file_stats;
 	int result;
+	const int buffer_size = 1024;
+	char path[1024];
 
 	(void)argc;
 	(void)argv;
+
+
+	getcwd(path, buffer_size);
+
 	while (1)
 	{
-		print_prompt();
+		print_prompt(path);
 		if (command_line != NULL)
 		{
 			free(command_line);
@@ -38,3 +44,4 @@ int main(int argc, char **argv, char **env)
 	free(command_line);
 	return (0);
 }
+
