@@ -32,17 +32,20 @@ int main(int argc, char **argv, char **env)
 		arguments = parse_command_line(command_line, arguments);
 		/*free(command_line);*/
 
-		if (strcmp(arguments[0], "exit") == 0)
-			break;
-		if (stat(arguments[0], &file_stats) == 0)
-			execute_command(arguments[0], arguments, env);
-		else
-			fprintf(stderr, "Command not found: %s\n", arguments[0]);
+		if (arguments != NULL)
+		{
+			if (strcmp(arguments[0], "exit") == 0)
+				break;
+			if (stat(arguments[0], &file_stats) == 0)
+				execute_command(arguments[0], arguments, env);
+			else
+				fprintf(stderr, "Command not found: %s\n", arguments[0]);
 
-		for (i = 0; arguments[i] != NULL; i++)
-			free(arguments[i]);
+			for (i = 0; arguments[i] != NULL; i++)
+				free(arguments[i]);
 
-		free(arguments);
+			free(arguments);
+		}
 		arguments = NULL;
 	}
 	if (arguments != NULL)
