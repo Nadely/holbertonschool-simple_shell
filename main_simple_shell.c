@@ -42,7 +42,6 @@ int main(int argc, char **argv, char **env)
 		for (i = 0; arguments[i] != NULL; i++)
 			free(arguments[i]);
 		free(arguments);
-		printf("%ld\n", sizeof(char *));
 	}
 	for (i = 0; arguments[i] != NULL; i++)
 		free(arguments[i]);
