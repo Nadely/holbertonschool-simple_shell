@@ -2,6 +2,7 @@
 /**
  * execute_command - execute a command
  * @command: the command to execute
+ * @arguments: array of pointers to arguments
  * @env: environment variables
  * Description : Cette fonction prend une commande en argument et l'exécute
  * à l'aide de l'appel système execve. Elle crée un processus enfant en

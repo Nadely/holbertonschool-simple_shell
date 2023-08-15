@@ -2,6 +2,7 @@
 /**
  * **parse_command_line - function to get the executable
  * @command: pointer to the command line
+ * @arguments: array of pointers to arguments
  *
  * Return: NOTHING
  */
@@ -9,12 +10,6 @@ char **parse_command_line(char *command, char **arguments)
 {
 	char *line = strdup(command), *arg;
 	int i = 0, count_args = 0;
-
-	/*if (arguments != NULL)
-	{
-		for (i = 0; arguments[i] != NULL; i++)
-			free(arguments[i]);
-	}*/
 
 	arg = strtok(line, " \n");
 	while (arg != NULL) /* counts the number of arguments for malloc*/
