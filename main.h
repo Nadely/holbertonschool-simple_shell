@@ -10,6 +10,6 @@
 
 void print_prompt(void);
 int execute_command(char *command, char **env);
-char **parse_command_line(char *command);
+char **parse_command_line(char *command, char **arguments);
 
 #endif

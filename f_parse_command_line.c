@@ -5,11 +5,16 @@
  *
  * Return: NOTHING
  */
-char **parse_command_line(char *command)
+char **parse_command_line(char *command, char **arguments)
 {
 	char *line = strdup(command), *arg;
 	int i = 0, count_args = 0;
-	char **arguments;
+
+	/*if (arguments != NULL)
+	{
+		for (i = 0; arguments[i] != NULL; i++)
+			free(arguments[i]);
+	}*/
 
 	arg = strtok(line, " \n");
 	while (arg != NULL) /* counts the number of arguments for malloc*/
@@ -21,7 +26,9 @@ char **parse_command_line(char *command)
 	free(line);
 	if (count_args == 0)
 		return (0);
-	arguments = malloc(sizeof(char *) * (count_args + 1));
+	arguments = realloc(arguments, sizeof(char *) * (count_args + 1));
+	if (arguments == NULL)
+		exit(EXIT_FAILURE);
 	arguments[count_args] = NULL;
 	line = strdup(command); /*go back to start*/
 

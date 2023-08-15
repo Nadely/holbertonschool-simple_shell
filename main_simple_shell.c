@@ -12,7 +12,7 @@ int main(int argc, char **argv, char **env)
 	size_t arg_count = 0;
 	struct stat file_stats;
 	int result, i;
-	char **arguments;
+	char **arguments = NULL;
 
 	(void)argc;
 	(void)argv;
@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **env)
 
 		if (result == -1)
 			break;
-		arguments = parse_command_line(command_line);
+		arguments = parse_command_line(command_line, arguments);
 		/*free(command_line);*/
 
 		if (strcmp(arguments[0], "exit") == 0)
@@ -41,11 +41,16 @@ int main(int argc, char **argv, char **env)
 
 		for (i = 0; arguments[i] != NULL; i++)
 			free(arguments[i]);
+
+		free(arguments);
+		arguments = NULL;
+	}
+	if (arguments != NULL)
+	{
+		for (i = 0; arguments[i] != NULL; i++)
+			free(arguments[i]);
 		free(arguments);
 	}
-	for (i = 0; arguments[i] != NULL; i++)
-		free(arguments[i]);
-	free(arguments);
 	free(command_line);
 	return (0);
 }
