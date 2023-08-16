@@ -11,7 +11,7 @@ int main(int argc, char **argv, char **env)
 	char *command_line = NULL;
 	size_t arg_count = 0;
 	struct stat file_stats;
-	int result, i;
+	int result, i, count_command = 0;
 	char **arguments = NULL;
 	char exec_path[50] = "/bin/"/*, *bin_and_command*/;
 
@@ -19,8 +19,10 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		/*print_prompt();*/
+
+		print_prompt();
 		result = getline(&command_line, &arg_count, stdin);
+
 
 		if (result == -1)
 			break;
@@ -30,7 +32,7 @@ int main(int argc, char **argv, char **env)
 		{
 			if (strcmp(arguments[0], "exit") == 0)
 				break;
-
+			count_command++;
 			/*bin_and_command = malloc(strlen(exec_path) + strlen(arguments[0]));*/
 			/*bin_and_command = */
 			strcat(exec_path, arguments[0]);
@@ -41,7 +43,7 @@ int main(int argc, char **argv, char **env)
 			else
 			{
 				printf("%s\n", exec_path);
-				fprintf(stderr, "%s: %s: not found\n", argv[0], arguments[0]);
+				fprintf(stderr, "%s: %d: %s: not found\n", argv[0], count_command, arguments[0]);
 
 			}
 			strcpy(exec_path, "/bin/");

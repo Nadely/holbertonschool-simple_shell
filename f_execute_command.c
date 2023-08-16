@@ -10,13 +10,13 @@
  * processus enfant par la commande souhaitée. Le processus parent attend que
  * le processus enfant ait terminé son exécution avant de continuer
  *
- * Return: 0 if successful, -1 on failure
+ * Return: status
  */
 
 int execute_command(char *command, char **arguments, char **env)
 {
 	pid_t pid;
-	int result, *for_child_to_finish = 0;
+	int result, status = 0;
 
 	pid = fork();
 	if (pid == -1)
@@ -31,6 +31,6 @@ int execute_command(char *command, char **arguments, char **env)
 			perror("execve");
 		exit(0);
 	}
-	wait(for_child_to_finish);
-	return (0);
+	wait(&status);
+	return (status);
 }

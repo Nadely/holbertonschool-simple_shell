@@ -9,6 +9,6 @@ void print_prompt(void)
 	char path[1024];
 
 	getcwd(path, buffer_size);
-	write(1, path, strlen(path));
+	/*write(1, path, strlen(path));*/
 	write(1, "$ ", 2);
 }
