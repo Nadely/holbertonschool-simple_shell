@@ -33,7 +33,7 @@ int execute_command(char *command, char **arguments, char **env)
 	{
 		wait(&status);
 		if (strcmp(arguments[0], "/bin/ls") == 0)
-			if (stat(arguments[1], &file_stats) != 0)
+			if (stat(arguments[1], &file_stats) != 0 && arguments[1] != NULL)
 				return(2);
 	}
 	return (status);
