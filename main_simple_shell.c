@@ -9,18 +9,15 @@
 int main(int argc, char **argv, char **env)
 {
 	size_t arg_count = 0;
-	struct stat file_stats;
-	int result, count_command = 0, status = 0;
-	char **arguments = NULL, exec_path[50] = "/bin/", *command_line = NULL;
+	int count_command = 0, status = 0;
+	char **arguments = NULL, *command_line = NULL, *full_path;
 
 	(void)argc;
 
 	while (1)
 	{
 		print_prompt();
-		result = getline(&command_line, &arg_count, stdin);
-
-		if (result == -1)
+		if (getline(&command_line, &arg_count, stdin) == -1)
 			break;
 		arguments = parse_command_line(command_line, arguments);
 
@@ -29,18 +26,15 @@ int main(int argc, char **argv, char **env)
 			if (strcmp(arguments[0], "exit") == 0)
 				break;
 			count_command++;
-			strcat(exec_path, arguments[0]);
-			if (stat(arguments[0], &file_stats) == 0)
-				status = execute_command(arguments[0], arguments, env);
-			else if (stat(exec_path, &file_stats) == 0)
-				status = execute_command(exec_path, arguments, env);
+			full_path = get_path(arguments[0], env);
+			if (full_path != NULL)
+				status = execute_command(full_path, arguments, env);
 			else
 			{
 				status = 127;
 				fprintf(stderr, "%s: %d: %s: not found\n", argv[0],
 				count_command, arguments[0]);
 			}
-			strcpy(exec_path, "/bin/");
 			free_args(arguments);
 		}
 		arguments = NULL;
