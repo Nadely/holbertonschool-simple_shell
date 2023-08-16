@@ -16,7 +16,6 @@ int main(int argc, char **argv, char **env)
 	char exec_path[50] = "/bin/"/*, *bin_and_command*/;
 
 	(void)argc;
-	(void)argv;
 
 	while (1)
 	{
@@ -42,7 +41,7 @@ int main(int argc, char **argv, char **env)
 			else
 			{
 				printf("%s\n", exec_path);
-				fprintf(stderr, "Command not found: %s\n", arguments[0]);
+				fprintf(stderr, "%s: %s: not found\n", argv[0], arguments[0]);
 
 			}
 			strcpy(exec_path, "/bin/");
