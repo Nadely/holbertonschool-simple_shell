@@ -32,6 +32,9 @@ int execute_command(char *command, char **arguments, char **env)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status) && WEXITSTATUS(status) == 2)
+			status = 2;
+
 		/*
 		*if (strcmp(arguments[0], "/bin/ls") == 0)
 		*if (stat(arguments[1], &file_stats) != 0 && arguments[1] != NULL)
