@@ -38,8 +38,8 @@ int main(int argc, char **argv, char **env)
 			strcat(exec_path, arguments[0]);
 			if (stat(arguments[0], &file_stats) == 0)
 				status = execute_command(arguments[0], arguments, env);
-			else if (stat(exec_path, &file_stats) == 0)
-				status = execute_command(exec_path, arguments, env);
+			/*else if (stat(exec_path, &file_stats) == 0)
+				status = execute_command(exec_path, arguments, env);*/
 			else
 			{
 				status = 127;
