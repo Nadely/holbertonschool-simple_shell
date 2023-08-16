@@ -8,21 +8,17 @@
  */
 int main(int argc, char **argv, char **env)
 {
-	char *command_line = NULL;
 	size_t arg_count = 0;
 	struct stat file_stats;
-	int result, i, count_command = 0, status = 0;
-	char **arguments = NULL;
-	char exec_path[50] = "/bin/";
+	int result, count_command = 0, status = 0;
+	char **arguments = NULL, exec_path[50] = "/bin/", *command_line = NULL;
 
 	(void)argc;
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
-			print_prompt();
+		print_prompt();
 		result = getline(&command_line, &arg_count, stdin);
-
 
 		if (result == -1)
 			break;
@@ -30,15 +26,6 @@ int main(int argc, char **argv, char **env)
 
 		if (arguments != NULL)
 		{
-			/*if (strcmp(arguments[0], "env") == 0)
-			{
-				i = 0;
-				while(env[i])
-				{
-					printf("%s\n", env[i]);
-					i++;
-				}
-			}*/
 			if (strcmp(arguments[0], "exit") == 0)
 				break;
 			count_command++;
@@ -50,23 +37,15 @@ int main(int argc, char **argv, char **env)
 			else
 			{
 				status = 127;
-				fprintf(stderr, "%s: %d: %s: not found\n", argv[0], count_command, arguments[0]);
+				fprintf(stderr, "%s: %d: %s: not found\n", argv[0],
+				count_command, arguments[0]);
 			}
 			strcpy(exec_path, "/bin/");
-
-			for (i = 0; arguments[i] != NULL; i++)
-				free(arguments[i]);
-
-			free(arguments);
+			free_args(arguments);
 		}
 		arguments = NULL;
 	}
-	if (arguments != NULL)
-	{
-		for (i = 0; arguments[i] != NULL; i++)
-			free(arguments[i]);
-		free(arguments);
-	}
+	free_args(arguments);
 	free(command_line);
 	return (status);
 }
