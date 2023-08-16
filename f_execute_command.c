@@ -16,7 +16,8 @@
 int execute_command(char *command, char **arguments, char **env)
 {
 	pid_t pid;
-	int result, status = 0;
+	int status = 0;
+	struct stat file_stats;
 
 	pid = fork();
 	if (pid == -1)
@@ -26,11 +27,14 @@ int execute_command(char *command, char **arguments, char **env)
 	}
 	if (pid == 0)
 	{
-		result = execve(command, arguments, env);
-		if (result == -1)
-			perror("execve");
-		exit(0);
+		execve(command, arguments, env);
 	}
-	wait(&status);
+	else
+	{
+		wait(&status);
+		if (strcmp(arguments[0], "/bin/ls") == 0)
+			if (stat(arguments[1], &file_stats) != 0)
+				return(2);
+	}
 	return (status);
 }
