@@ -20,7 +20,7 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 
-		print_prompt();
+		/*print_prompt();*/
 		result = getline(&command_line, &arg_count, stdin);
 
 
