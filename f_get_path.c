@@ -12,7 +12,7 @@ char *get_path(char *command, char **env)
 
 	/*if (stat(command, &file_info) == 0)
 		return (strdup(command));*/
-	if (command[0] == '/')
+	if (command[0] == '/' || (command[0] == '.'))
 		if (stat(command, &file_info) == 0)
 			return (strdup(command));
 	for (i = 0; env[i]; i++)
