@@ -11,7 +11,7 @@ int main(int argc, char **argv, char **env)
 	char *command_line = NULL;
 	size_t arg_count = 0;
 	struct stat file_stats;
-	int result, i, count_command = 0;
+	int result, i, count_command = 0, status = 0;
 	char **arguments = NULL;
 	char exec_path[50] = "/bin/"/*, *bin_and_command*/;
 
@@ -37,11 +37,12 @@ int main(int argc, char **argv, char **env)
 			/*bin_and_command = */
 			strcat(exec_path, arguments[0]);
 			if (stat(arguments[0], &file_stats) == 0)
-				execute_command(arguments[0], arguments, env);
+				status = execute_command(arguments[0], arguments, env);
 			else if (stat(exec_path, &file_stats) == 0)
-				execute_command(exec_path, arguments, env);
+				status = execute_command(exec_path, arguments, env);
 			else
 			{
+				status = 127;
 				fprintf(stderr, "%s: %d: %s: not found\n", argv[0], count_command, arguments[0]);
 			}
 			strcpy(exec_path, "/bin/");
@@ -61,5 +62,5 @@ int main(int argc, char **argv, char **env)
 		free(arguments);
 	}
 	free(command_line);
-	return (0);
+	return (status);
 }
