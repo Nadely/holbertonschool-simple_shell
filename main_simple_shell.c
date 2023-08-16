@@ -19,8 +19,8 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-
-		/*print_prompt();*/
+		if (isatty(STDIN_FILENO))
+			print_prompt();
 		result = getline(&command_line, &arg_count, stdin);
 
 
@@ -42,9 +42,7 @@ int main(int argc, char **argv, char **env)
 				execute_command(exec_path, arguments, env);
 			else
 			{
-				printf("%s\n", exec_path);
 				fprintf(stderr, "%s: %d: %s: not found\n", argv[0], count_command, arguments[0]);
-
 			}
 			strcpy(exec_path, "/bin/");
 			/*free(bin_and_command);*/
