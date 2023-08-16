@@ -28,7 +28,10 @@ int main(int argc, char **argv, char **env)
 			count_command++;
 			full_path = get_path(arguments[0], env);
 			if (full_path != NULL)
+			{
 				status = execute_command(full_path, arguments, env);
+				free(full_path);
+			}
 			else
 			{
 				status = 127;

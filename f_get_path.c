@@ -6,21 +6,23 @@
  */
 char *get_path(char *command, char **env)
 {
-	char *path, *result = NULL, *token;
-	int i, res_len;
+	char *path = NULL, *result = NULL, *token = NULL;
+	int i, res_len = 0;
 	struct stat file_info;
 
+
 	for (i = 0; env[i]; i++)
-		if (env[i][0] == 'P' && env[i][1] == 'A')
+		if (env[i][0] == 'P' && env[i][1] == 'A' && env[i][2] == 'T')
 			path = strdup(env[i]);
 
 	token = strtok(path, "=");
 	token = strtok(NULL, ":");
 	while (token != NULL) /* counts the number of arguments for malloc*/
 	{
-		/*printf("%s\n", token);*/
 		res_len = strlen(token) + strlen(command) + 2;
 		result = malloc(res_len);
+		for (i = 0; i < res_len; i++)
+			result[i] = 0;
 
 		strcat(result, token);
 		strcat(result, "/");
