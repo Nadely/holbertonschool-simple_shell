@@ -30,6 +30,12 @@ int main(int argc, char **argv, char **env)
 
 		if (arguments != NULL)
 		{
+			if (strcmp(arguments[0], "env") == 0)
+			{
+				i = 0;
+				while(env[i])
+					printf("%s\n", env[i++]);
+			}
 			if (strcmp(arguments[0], "exit") == 0)
 				break;
 			count_command++;
