@@ -11,7 +11,7 @@ char *get_path(char *command, char **ev)
 	int i, res_len = 0;
 	struct stat file_info;
 
-	if (command[0] == '/' || (command[0] == '.') || strcmp(command, "env") == 0)
+	if (command[0] == '/' || (command[0] == '.'))
 		if (stat(command, &file_info) == 0)
 			return (strdup(command));
 	for (i = 0; ev[i]; i++)

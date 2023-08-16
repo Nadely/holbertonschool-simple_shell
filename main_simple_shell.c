@@ -9,7 +9,7 @@
 int main(int argc, char **argv, char **env)
 {
 	size_t arg_count = 0;
-	int count_command = 0, status = 0;
+	int count_command = 0, status = 0, i;
 	char **arguments = NULL, *command_line = NULL, *full_path;
 
 	(void)argc;
@@ -23,21 +23,18 @@ int main(int argc, char **argv, char **env)
 
 		if (arguments != NULL)
 		{
-			if (strcmp(arguments[0], "exit") == 0)
-				break;
 			count_command++;
-			full_path = get_path(arguments[0], env);
-			/*printf("path found : %s\n", full_path);*/
-			if (full_path != NULL)
-			{
-				status = execute_command(full_path, arguments, env);
-				free(full_path);
-			}
+			i = 0;
+			if (strcmp(arguments[0], "env") == 0)
+				while (env[i])
+					printf("%s\n", env[i++]);
 			else
 			{
-				status = 127;
-				fprintf(stderr, "%s: %d: %s: not found\n", argv[0],
-				count_command, arguments[0]);
+				if (strcmp(arguments[0], "exit") == 0)
+					break;
+				full_path = get_path(arguments[0], env);
+
+				status = execute_command(full_path, arguments, env, argv, &count_command);
 			}
 			free_args(arguments);
 		}
