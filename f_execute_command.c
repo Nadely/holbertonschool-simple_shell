@@ -17,7 +17,7 @@ int execute_command(char *command, char **arguments, char **env)
 {
 	pid_t pid;
 	int status = 0;
-	struct stat file_stats;
+	/*struct stat file_stats;*/
 
 	pid = fork();
 	if (pid == -1)
