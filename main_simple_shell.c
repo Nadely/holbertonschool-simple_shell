@@ -27,7 +27,7 @@ int main(int argc, char **argv, char **env)
 				break;
 			count_command++;
 			full_path = get_path(arguments[0], env);
-			printf("path found : %s\n", full_path);
+			/*printf("path found : %s\n", full_path);*/
 			if (full_path != NULL)
 			{
 				status = execute_command(full_path, arguments, env);

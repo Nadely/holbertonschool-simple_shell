@@ -10,8 +10,8 @@ char *get_path(char *command, char **env)
 	int i, res_len = 0;
 	struct stat file_info;
 
-	if (stat(command, &file_info) == 0)
-		return (strdup(command));
+	/*if (stat(command, &file_info) == 0)
+		return (strdup(command));*/
 	for (i = 0; env[i]; i++)
 		if (env[i][0] == 'P' && env[i][1] == 'A' && env[i][2] == 'T' && env[i][4] == '=')
 			path = strdup(env[i]);
