@@ -26,10 +26,10 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 <ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
 
-<ins>_Compiler :_</ins>
+##<ins>_Compiler :_</ins>
 	GNU
 
-<ins>_List of authorized functions :_</ins>
+##<ins>_List of authorized functions :_</ins>
 
 	all functions from string.h
 	access (man 2 access)
@@ -70,13 +70,13 @@ The shell is a powerful tool for interacting with a command-line operating syste
 	write (man 2 write)
 
 
-<ins>__COMPILATION CMD__</ins>
+##<ins>__COMPILATION CMD__</ins>
 	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell
 
-<ins>__RETURNS VALUE__</ins>
+##<ins>__RETURNS VALUE__</ins>
 	Return the status code : 0 (sucess), 127 or 2 (error).
 
-<ins>__EXEMPLES__
+##<ins>__EXEMPLES__
 
 <ins>_Interactive :_</ins>
 
@@ -87,13 +87,13 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 		echo "/bin/ls" | ./simple_shell
 
-<ins>__MAN PAGE__</ins>
+##<ins>__MAN PAGE__</ins>
 
 
-<ins>__CHECK MEMORY LEAKS__</ins>
+##<ins>__CHECK MEMORY LEAKS__</ins>
 
 	valgrind ./simple_shell
 
-#<ins>__AUTHORS__</ins>
+##<ins>__AUTHORS__</ins>
 
 Erwan Rocal, Nadège Tettelin.
