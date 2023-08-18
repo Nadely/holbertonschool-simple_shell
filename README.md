@@ -89,7 +89,8 @@ _Non-interactive :_
 
 ### MAN PAGE
 
-	the command to use the man page is :
+the command to use the man page is :
+
 	man ./man_1_simple_shell
 
 ### CHECK MEMORY LEAKS
