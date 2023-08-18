@@ -3,7 +3,9 @@
  * main - function simple shell
  * @argc: argument count (not used)
  * @argv: argument values (not used)
- * @env: environ virables
+ * @env: environ variables
+ *
+ * Descrpition: command interpretor
  * Return: int
  */
 int main(int argc, char **argv, char **env)
@@ -26,9 +28,9 @@ int main(int argc, char **argv, char **env)
 			count_command++;
 			i = 0;
 			if (strcmp(arguments[0], "env") == 0)
-				while (env[i])
+				while (env[i]) /*print the environment*/
 					printf("%s\n", env[i++]);
-			else
+			else /*test exit*/
 			{
 				if (strcmp(arguments[0], "exit") == 0)
 					break;

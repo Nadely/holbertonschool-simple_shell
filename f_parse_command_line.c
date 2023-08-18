@@ -4,6 +4,7 @@
  * @command: pointer to the command line
  * @arguments: array of pointers to arguments
  *
+ * Description: cut the command line into arguments and make an array with it
  * Return: NOTHING
  */
 char **parse_command_line(char *command, char **arguments)
@@ -21,9 +22,11 @@ char **parse_command_line(char *command, char **arguments)
 	free(line);
 	if (count_args == 0)
 		return (0);
+
 	arguments = realloc(arguments, sizeof(char *) * (count_args + 1));
 	if (arguments == NULL)
 		exit(EXIT_FAILURE);
+
 	arguments[count_args] = NULL;
 	line = strdup(command); /*go back to start*/
 

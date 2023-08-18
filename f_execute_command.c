@@ -6,12 +6,8 @@
  * @env: environment variables
  * @argv: arguments of the ./simple shell
  * @count_command: counts the number of commands executed
- * Description : Cette fonction prend une commande en argument et l'exécute
- * à l'aide de l'appel système execve. Elle crée un processus enfant en
- * utilisant l'appel système fork, puis utilise execve pour remplacer le
- * processus enfant par la commande souhaitée. Le processus parent attend que
- * le processus enfant ait terminé son exécution avant de continuer
  *
+ * Description: create a child to execute the command
  * Return: status
  */
 

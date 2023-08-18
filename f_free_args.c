@@ -1,8 +1,9 @@
 #include "main.h"
 /**
  * free_args - free arguments
- *
  * @arguments: arguments
+ *
+ * Description: free memory
  * Return: Nothing
  */
 void free_args(char **arguments)
