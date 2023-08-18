@@ -12,7 +12,7 @@
 - [AUTHORS](#AUTHORS)
 
 
-<ins>__DESCRIPTION__</ins>
+##<ins>__DESCRIPTION__</ins>
 
 The shell is a command-line interface enabling the user to interact with a computer's operating system. It acts as a layer of abstraction between the user and the operating system kernel, enabling the user to execute commands, launch programs, navigate directories, manage files and processes, and automate tasks using scripts.
 
@@ -20,16 +20,16 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 
 
-<ins>__FLOWCHART__</ins>
+##<ins>__FLOWCHART__</ins>
 
 ![flowchart](https://github.com/Nadely/holbertonschool-simple_shell/blob/main/Flowchart_Simple_Shell.png)
 
-<ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
+##<ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
 
-##<ins>_Compiler :_</ins>
+<ins>_Compiler :_</ins>
 	GNU
 
-##<ins>_List of authorized functions :_</ins>
+<ins>_List of authorized functions :_</ins>
 
 	all functions from string.h
 	access (man 2 access)
