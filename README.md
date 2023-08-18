@@ -1,18 +1,18 @@
 # <p style="text-align: center;"><span style="color:blue">*Simple_Shell*</span></p>
 
-<ins>__TABLE OF CONTENTS__</ins>
-- [DESCRIPTION](#Description)
-- [FLOWCHART](#Flowchart)
-- [REQUIREMENTS](#Requirements)
-- [COMPILATION CMD](#compliationCDM)
-- [RETURNS VALUE](#RETURNSVALUE)
-- [EXEMPLES](#Exemplesg)
-- [MAN PAGE](#MANPAGE)
-- [CHECK MEMORY LEAKS](#CHECKMEMORYLEAKS)
-- [AUTHORS](#AUTHORS)
+### TABLE OF CONTENTS
+- [DESCRIPTION](#description)
+- [FLOWCHART](#flowchart)
+- [REQUIREMENTS](#requirements)
+- [COMPILATION CMD](#compilation-cmd)
+- [RETURN VALUE](#return-value)
+- [EXAMPLES](#examples)
+- [MAN PAGE](#man-page)
+- [CHECK MEMORY LEAKS](#check-memory-leaks)
+- [AUTHORS](#authors)
 
 
-##<ins>__DESCRIPTION__</ins>
+### DESCRIPTION
 
 The shell is a command-line interface enabling the user to interact with a computer's operating system. It acts as a layer of abstraction between the user and the operating system kernel, enabling the user to execute commands, launch programs, navigate directories, manage files and processes, and automate tasks using scripts.
 
@@ -20,18 +20,18 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 
 
-##<ins>__FLOWCHART__</ins>
+### FLOWCHART
 
 ![flowchart](https://github.com/Nadely/holbertonschool-simple_shell/blob/main/Flowchart_Simple_Shell.png)
 
-##<ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
+### REQUIREMENTS
+compiler, list of authorized functions)
 
-<ins>_Compiler :_</ins>
-	GNU
+_Compiler :_GNU
 
-<ins>_List of authorized functions :_</ins>
+_List of authorized functions :_
 
-	all functions from string.h
+  	all functions from string.h
 	access (man 2 access)
 	chdir (man 2 chdir)
 	close (man 2 close)
@@ -70,30 +70,32 @@ The shell is a powerful tool for interacting with a command-line operating syste
 	write (man 2 write)
 
 
-##<ins>__COMPILATION CMD__</ins>
+### COMPILATION CMD
 	gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell
 
-##<ins>__RETURNS VALUE__</ins>
+### RETURN VALUE
 	Return the status code : 0 (sucess), 127 or 2 (error).
 
-##<ins>__EXEMPLES__
+### EXAMPLES
 
-<ins>_Interactive :_</ins>
+_Interactive :_
 
 		./simple_shell
 		$ ls
 
-<ins>_Non-interactive :_</ins>
+_Non-interactive :_
 
 		echo "/bin/ls" | ./simple_shell
 
-##<ins>__MAN PAGE__</ins>
+### MAN PAGE
 
+	the command to use the man page is :
+	man ./man_1_simple_shell
 
-##<ins>__CHECK MEMORY LEAKS__</ins>
+### CHECK MEMORY LEAKS
 
 	valgrind ./simple_shell
 
-##<ins>__AUTHORS__</ins>
+### AUTHORS
 
 Erwan Rocal, Nadège Tettelin.
