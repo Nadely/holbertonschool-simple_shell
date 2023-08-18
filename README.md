@@ -22,7 +22,7 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 <ins>__FLOWCHART__</ins>
 
-![flow_chart](https://github.com/Nadely/holbertonschool-simple_shell/blob/common/Flowchart_Simple_Shell.png)
+![flowchart](https://github.com/Nadely/holbertonschool-simple_shell/Flowchart_Simple_Shell.png)
 
 <ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
 
@@ -94,6 +94,6 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 	valgrind ./simple_shell
 
-<ins>__AUTHORS__</ins>
+#<ins>__AUTHORS__</ins>
 
 Erwan Rocal, Nadège Tettelin.
