@@ -22,7 +22,7 @@ The shell is a powerful tool for interacting with a command-line operating syste
 
 <ins>__FLOWCHART__</ins>
 
-![flowchart](https://github.com/Nadely/holbertonschool-simple_shell/Flowchart_Simple_Shell.png)
+![flowchart](https://github.com/Nadely/holbertonschool-simple_shell/blob/main/Flowchart_Simple_Shell.png)
 
 <ins>__REQUIREMENTS__</ins> compiler, list of authorized functions)
 
