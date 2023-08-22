@@ -11,7 +11,7 @@
 char *get_path(char *command, char **ev)
 {
 	char *path = NULL, *result = NULL, *token = NULL;
-	int i, res_len = 0;
+	int i, result_len = 0;
 	struct stat file_info;
 
 	if (command[0] == '/' || (command[0] == '.'))
@@ -28,9 +28,9 @@ char *get_path(char *command, char **ev)
 		token = strtok(NULL, ":");
 		while (token != NULL) /*combine each path with the command*/
 		{
-			res_len = strlen(token) + strlen(command) + 2;
-			result = malloc(res_len);
-			for (i = 0; i < res_len; i++)
+			result_len = strlen(token) + strlen(command) + 2;
+			result = malloc(result_len);
+			for (i = 0; i < result_len; i++)
 				result[i] = 0;
 
 			strcat(result, token);
